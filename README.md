@@ -1,6 +1,6 @@
 - 👋 Hi, I’m Pedro Alves
 - 👀 I’m interested in sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
-- 🌱 I’m currently publishing my Hydropinic home machine for balcony... Complete solution from design to hardware and software.
+- 🌱 I’m currently publishing my Hydroponic home machine for balcony... Complete solution from design to hardware and software.
 - 💞️ I’m looking to collaborate on sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
 - 📫 How to reach me, pedro at tfx.eco.br
 
