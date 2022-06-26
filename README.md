@@ -1,6 +1,7 @@
-- 👋 Hi, I’m Pedro Alves
+# 👋 Hi, I’m Pedro Alves from TFX
 - 👀 I’m interested in sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
-- 🌱 I’m currently publishing my *Hydroponic home machine for balcony*... Complete solution from design to hardware and software. This repository has some draws of structure and pictures of final result. The system has been running for almost one year and is productioning tomatoes and spices (20 May 2020).
+- 🌱 I’m currently publishing my *Hydroponic home machine for balcony*... Complete solution from design to hardware and software. This repository has some draws of structure and pictures of final result. The system has been running for almost one year and is productioning tomatoes and spices (20 May 2022).
+- Also trying to develop a aerospacial background in Brazil by publishing some hardware and software <a href=https://github.com/PedroAlvesTFX/Aerospace> here in github</a>.
 - 💞️ I’m looking to collaborate on sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
 - 📫 How to reach me, pedro at tfx.eco.br
 
