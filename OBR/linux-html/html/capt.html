@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Monitor Vegetação</title>
+
+<style>
+body {
+    background: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+.painel {
+    flex: 1;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    border: 1px solid #555;
+}
+
+h2 {
+    margin: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="painel">
+        <h2>Entrada</h2>
+        <img id="entrada" src="entrada.jpg">
+    </div>
+
+    <div class="painel">
+        <h2>Saída</h2>
+        <img id="saida" src="saida.jpg">
+    </div>
+
+</div>
+
+<script>
+
+function atualizarImagens()
+{
+    let ts = new Date().getTime();
+
+    document.getElementById("entrada").src =
+        "/fotos/ramdisk/entrada.jpg?t=" + ts;
+
+    document.getElementById("saida").src =
+        "/fotos/ramdisk/saida.jpg?t=" + ts;
+}
+
+setInterval(atualizarImagens, 500);
+
+atualizarImagens();
+
+</script>
+
+</body>
+</html>

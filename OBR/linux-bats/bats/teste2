@@ -1,0 +1,24 @@
+import spidev
+import time
+
+spi = spidev.SpiDev()
+spi.open(0, 0)          # SPI0, CS0
+spi.max_speed_hz = 500000
+spi.mode = 0b00          # LoRa usa modo 0
+
+REG_VERSION = 0x42
+
+# Para ler um registro, bit 7 = 0, endereço = bits 0-6
+def read_register(addr):
+    resp = spi.xfer2([addr & 0x7F, 0x00])
+    # resp[0] é o byte enviado (ignore), resp[1] é o dado do registrador
+    return resp[1]
+
+# Reset LoRa (opcional, se seu HAT tiver pino reset controlável)
+# Aqui assumimos que está feito por jumper ou power-on reset
+
+time.sleep(0.1)
+version = read_register(REG_VERSION)
+print(f"Versão do LoRa: 0x{version:02X}")
+
+spi.close()

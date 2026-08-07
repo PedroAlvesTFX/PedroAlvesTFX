@@ -1,0 +1,157 @@
+#!/usr/bin/env python3
+"""
+Conversor de Imagem para ASCII com Cores
+Mapeia cores para: W (Branco), B (Azul), G (Verde), R (Vermelho), P (Preto)
+Saída: Matriz ASCII de 32x18
+"""
+
+import cv2
+import numpy as np
+from PIL import Image
+import sys
+import os
+
+# Mapeamento de cores para caracteres
+CORES = {
+    'W': (255, 255, 255),  # Branco
+    'B': (0, 0, 255),      # Azul
+    'G': (0, 255, 0),      # Verde
+    'R': (255, 0, 0),      # Vermelho
+    'P': (0, 0, 0)         # Preto
+}
+
+def aproximar_cor(rgb):
+    """Aproxima uma cor RGB para o código mais próximo (W, B, G, R, P)"""
+    menor_distancia = float('inf')
+    cor_mais_proxima = 'P'
+    
+    for codigo, cor in CORES.items():
+        distancia = np.sqrt(
+            (rgb[0] - cor[0])**2 +
+            (rgb[1] - cor[1])**2 +
+            (rgb[2] - cor[2])**2
+        )
+        
+        if distancia < menor_distancia:
+            menor_distancia = distancia
+            cor_mais_proxima = codigo
+    
+    return cor_mais_proxima
+
+def converter_imagem_para_ascii(caminho_imagem, largura=32, altura=18):
+    """Converte uma imagem para matriz ASCII colorida"""
+    # Abre e redimensiona a imagem
+    img = Image.open(caminho_imagem)
+    img = img.resize((largura, altura), Image.Resampling.LANCZOS)
+    
+    # Converte para RGB se necessário
+    if img.mode != 'RGB':
+        img = img.convert('RGB')
+    
+    # Converte para numpy array
+    pixels = np.array(img)
+    
+    # Cria matriz ASCII
+    matriz_ascii = []
+    for y in range(altura):
+        linha = []
+        for x in range(largura):
+            r, g, b = pixels[y, x]
+            caractere = aproximar_cor((r, g, b))
+            linha.append(caractere)
+        matriz_ascii.append(linha)
+    
+    return matriz_ascii
+
+def exibir_matriz_ascii(matriz_ascii):
+    """Exibe a matriz ASCII formatada"""
+    print("\n" + "="*40)
+    print("MATRIZ ASCII COLORIDA (32x18)")
+    print("="*40)
+    
+    for linha in matriz_ascii:
+        print(''.join(linha))
+    
+    print("="*40)
+    print(f"Dimensões: {len(matriz_ascii[0])} x {len(matriz_ascii)}")
+    print("Legenda: W=Branco, B=Azul, G=Verde, R=Vermelho, P=Preto")
+    print("="*40)
+
+def salvar_matriz_ascii(matriz_ascii, arquivo_saida):
+    """Salva a matriz ASCII em um arquivo de texto"""
+    with open(arquivo_saida, 'w') as f:
+        f.write("MATRIZ ASCII COLORIDA (32x18)\n")
+        f.write("Legenda: W=Branco, B=Azul, G=Verde, R=Vermelho, P=Preto\n")
+        f.write("="*40 + "\n")
+        
+        for linha in matriz_ascii:
+            f.write(''.join(linha) + '\n')
+        
+        f.write("="*40 + "\n")
+    
+    print(f"\n✅ Matriz salva em: {arquivo_saida}")
+
+def capturar_da_camera(resolucao=(320, 240), redimensionar_ascii=(32, 18)):
+    """Captura imagem diretamente da câmera e converte para ASCII"""
+    import subprocess
+    import tempfile
+    
+    # Cria arquivo temporário
+    with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp:
+        nome_temp = tmp.name
+    
+    try:
+        # Captura imagem da câmera
+        cmd = f"rpicam-jpeg -o {nome_temp} --width {resolucao[0]} --height {resolucao[1]} --nopreview --timeout 500"
+        subprocess.run(cmd, shell=True, check=True, capture_output=True)
+        
+        # Converte para ASCII
+        matriz_ascii = converter_imagem_para_ascii(nome_temp, redimensionar_ascii[0], redimensionar_ascii[1])
+        
+        return matriz_ascii
+    
+    finally:
+        # Limpa arquivo temporário
+        if os.path.exists(nome_temp):
+            os.unlink(nome_temp)
+
+# ========== MAIN CORRIGIDO (SEM PROCESSAMENTO DESNECESSÁRIO) ==========
+if __name__ == "__main__":
+    # Verifica se foi passado um arquivo como argumento
+    if len(sys.argv) > 1:
+        caminho_imagem = sys.argv[1]
+        
+        # Verifica se o arquivo existe
+        if not os.path.exists(caminho_imagem):
+            print(f"❌ Erro: Arquivo '{caminho_imagem}' não encontrado!")
+            sys.exit(1)
+        
+        print(f"📷 Convertendo imagem: {caminho_imagem}")
+        inicio = time.time()
+        
+        matriz = converter_imagem_para_ascii(caminho_imagem, 32, 18)
+        
+        fim = time.time()
+        print(f"⏱️  Tempo de processamento: {(fim-inicio)*1000:.0f} ms")
+        
+        exibir_matriz_ascii(matriz)
+        salvar_matriz_ascii(matriz, "saida_ascii.txt")
+    
+    else:
+        # Modo interativo - mostra opções
+        print("="*50)
+        print("🎨 CONVERSOR DE IMAGEM PARA ASCII")
+        print("="*50)
+        print("\nUso: python3 ascii_converter.py <caminho_da_imagem>")
+        print("\nExemplo:")
+        print("  python3 ascii_converter.py foto.jpg")
+        print("\nOpções:")
+        print("  --camera    : Capturar imagem da câmera")
+        print("  --help      : Mostrar esta ajuda")
+        print("\n" + "="*50)
+        
+        # Se quiser usar a câmera, descomente a linha abaixo:
+        # if len(sys.argv) > 1 and sys.argv[1] == "--camera":
+        #     print("📸 Capturando da câmera...")
+        #     matriz = capturar_da_camera()
+        #     exibir_matriz_ascii(matriz)

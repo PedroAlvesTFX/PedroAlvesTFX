@@ -1,0 +1,46 @@
+{
+    "camera": {
+        "width": 640,
+        "height": 480,
+        "rotation": 180,
+        "fps": 30
+    },
+    "line": {
+        "roi_y_start": 0.65,
+        "black_v_max": 80,
+        "black_s_max": 90,
+        "min_area": 300,
+        "blur_ksize": 5
+    },
+    "red": {
+        "h1_min": 0, "h1_max": 8,
+        "h2_min": 170, "h2_max": 180,
+        "s_min": 110, "v_min": 80,
+        "roi_y_start": 0.80,
+        "min_area": 200,
+        "calib_points": [[475, 15], [460, 30], [440, 50]]
+    },
+    "green": {
+        "h_min": 40, "h_max": 85,
+        "s_min": 80, "v_min": 60,
+        "min_area": 150,
+        "merge_gap_px": 40
+    },
+    "obstacle": {
+        "v_max": 60,
+        "s_max": 80,
+        "min_area": 2500,
+        "roi_y_start": 0.30,
+        "roi_y_end": 0.70,
+        "line_exclusion_margin_px": 30
+    },
+    "uart": {
+        "port": "/dev/serial0",
+        "baud": 115200,
+        "send_hz": 20
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8000
+    }
+}

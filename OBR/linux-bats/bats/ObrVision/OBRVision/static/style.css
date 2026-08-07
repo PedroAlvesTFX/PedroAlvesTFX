@@ -1,0 +1,148 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1a1f26;
+    color: #e6e6e6;
+}
+
+header {
+    background: #10141a;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #2a323d;
+}
+
+header h1 { font-size: 1.2rem; color: #4fc3f7; }
+
+#statusBar { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.badge {
+    background: #232b35;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-family: monospace;
+}
+
+.badge.ok { background: #1a5c33; }
+.badge.error { background: #6b1f1f; }
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+}
+
+#imagePanel { flex: 1 1 480px; }
+
+#imageTabs { display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: wrap; }
+
+.imgTabButton {
+    background: #232b35;
+    color: #ccc;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.imgTabButton.active { background: #4fc3f7; color: #10141a; font-weight: bold; }
+
+#streamImg {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 6px;
+    background: #000;
+    display: block;
+}
+
+#readout {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 640px;
+}
+
+.readoutItem {
+    background: #232b35;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+#controlPanel {
+    flex: 1 1 320px;
+    max-width: 420px;
+}
+
+.controlBlock {
+    background: #232b35;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+
+.controlBlock h3 {
+    font-size: 0.9rem;
+    color: #4fc3f7;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+select, input[type="range"] { width: 100%; }
+
+select {
+    background: #10141a;
+    color: #e6e6e6;
+    border: 1px solid #333;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.sliderRow { margin-bottom: 10px; }
+
+.sliderRow label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+
+.sliderRow label .val { color: #4fc3f7; font-family: monospace; }
+
+.actions { display: flex; gap: 8px; }
+
+button {
+    flex: 1;
+    background: #4fc3f7;
+    color: #10141a;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.secondary { background: #384252; color: #e6e6e6; }
+
+#configStatus {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+    min-height: 1.2em;
+}
+
+#configStatus.ok { color: #66d17a; }
+#configStatus.error { color: #ff6b6b; }

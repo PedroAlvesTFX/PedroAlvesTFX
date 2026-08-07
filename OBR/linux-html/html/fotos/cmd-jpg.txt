@@ -1,0 +1,1 @@
+ rpicam-jpeg -o foto_320x240.jpg --width 320 --height 240 --nopreview --timeout 500

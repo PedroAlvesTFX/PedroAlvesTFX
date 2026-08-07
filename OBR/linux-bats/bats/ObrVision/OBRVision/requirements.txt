@@ -1,0 +1,7 @@
+# picamera2 e libcamera normalmente ja vem pelo apt no Raspberry Pi OS
+# (nao pelo pip) -- veja o README antes de instalar isso tudo.
+opencv-python-headless
+numpy
+flask
+pyserial
+psutil

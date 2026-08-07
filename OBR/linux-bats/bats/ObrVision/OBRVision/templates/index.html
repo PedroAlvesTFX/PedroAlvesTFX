@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBR Vision -- Calibração</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+    <h1>OBR Vision</h1>
+    <div id="statusBar">
+        <span class="badge" id="fpsBadge">FPS: --</span>
+        <span class="badge" id="cpuBadge">CPU: --</span>
+        <span class="badge" id="timingBadge">Proc: --</span>
+        <span class="badge" id="uartBadge">UART: --</span>
+        <span class="badge" id="stateBadge">Estado: --</span>
+    </div>
+</header>
+
+<main>
+
+    <section id="imagePanel">
+        <div id="imageTabs">
+            <button class="imgTabButton active" data-stream="original">Original</button>
+            <button class="imgTabButton" data-stream="black">Preto</button>
+            <button class="imgTabButton" data-stream="green">Verde</button>
+            <button class="imgTabButton" data-stream="red">Vermelho</button>
+            <button class="imgTabButton" data-stream="hsv">HSV</button>
+        </div>
+        <img id="streamImg" src="/video_feed/original" alt="stream">
+
+        <div id="readout">
+            <div class="readoutItem"><span>Linha</span><span id="roLine">--</span></div>
+            <div class="readoutItem"><span>Verde</span><span id="roGreen">--</span></div>
+            <div class="readoutItem"><span>Vermelho</span><span id="roRed">--</span></div>
+            <div class="readoutItem"><span>Obstáculo</span><span id="roObstacle">--</span></div>
+        </div>
+    </section>
+
+    <section id="controlPanel">
+
+        <div class="controlBlock">
+            <h3>Estado da missão</h3>
+            <select id="stateSelect">
+                <option value="INIT">INIT</option>
+                <option value="FOLLOW_LINE">FOLLOW_LINE</option>
+                <option value="GREEN">GREEN</option>
+                <option value="RED">RED</option>
+                <option value="OBSTACLE">OBSTACLE</option>
+                <option value="RESCUE">RESCUE</option>
+                <option value="FINISHED">FINISHED</option>
+            </select>
+        </div>
+
+        <div id="sliderGroups"></div>
+
+        <div class="actions">
+            <button id="saveBtn">Salvar em config/hsv.json</button>
+            <button id="loadBtn" class="secondary">Descartar e recarregar</button>
+        </div>
+        <p id="configStatus"></p>
+
+    </section>
+
+</main>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
