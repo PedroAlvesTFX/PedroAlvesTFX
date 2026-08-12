@@ -1,11 +1,17 @@
-- 👋 Hi, I’m Pedro Alves
-- 👀 I’m interested in sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
-- 🌱 I’m currently publishing my *Hydroponic home machine for balcony*... Complete solution from design to hardware and software. This repository has some draws of structure and pictures of final result. The system has been running for almost one year and is productioning tomatoes and spices (20 May 2020).
-- 💞️ I’m looking to collaborate on sustainability, nature's recovery,nature conservation, sustainable food production, tecnological support for previews subjects.
-- 📫 How to reach me, pedro at tfx.eco.br
+* 👋 Hi, I’m **Pedro Alves**.
 
-<!---
-PedroAlvesTFX/PedroAlvesTFX is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
-![results-tomatoes2](https://user-images.githubusercontent.com/22840629/167954280-6183ad65-823c-4b5c-937e-c7091e8d5dbc.jpg)
+* 👀 I’m interested in **technology, sustainability, aerospace, and applied research**, with a particular focus on developing practical technological solutions with real-world impact.
+
+* 🌱 My areas of interest include **environmental monitoring, nature conservation and restoration, sustainable food production, IoT, embedded systems, remote sensing, aerospace systems, and experimental technologies**.
+
+* 🚀 I’m also involved in the **development, coordination, and funding of research and technology projects in the aerospace sector**, including experimental aerospace systems, instrumentation, telemetry, sensing, testing platforms, and technologies supporting research, education, and innovation.
+
+* 🔬 I’m particularly interested in connecting **research, engineering, industry, universities, and funding opportunities** to turn technological concepts into prototypes, experiments, and viable projects.
+
+* 🌿 One of my projects is a **home hydroponic system designed for balconies**, covering the complete solution from mechanical design to electronics and software. The repository includes structural drawings, hardware information, and photographs of the operational system, which has successfully produced tomatoes, herbs, and spices.
+
+* 🤝 I’m looking to collaborate on **aerospace R&D, technology development, research project funding, sustainability, environmental monitoring, nature restoration and conservation, sustainable food production, IoT, embedded systems, and open technology projects**.
+
+* 💡 I’m especially interested in collaborations involving **aerospace research and development, experimental platforms, university–industry partnerships, public and private R&D funding, and technology transfer**.
+
+* 📫 You can reach me at **pedro at tfx.eco.br**.
