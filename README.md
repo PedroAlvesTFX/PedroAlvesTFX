@@ -15,3 +15,5 @@
 * 💡 I’m especially interested in collaborations involving **aerospace research and development, experimental platforms, university–industry partnerships, public and private R&D funding, and technology transfer**.
 
 * 📫 You can reach me at **pedro at tfx.eco.br**.
+  
+<img width="1637" height="961" alt="38AA365B-3A93-4C2E-B95A-A492F41B00FB" src="https://github.com/user-attachments/assets/a4efe260-9857-4167-92ae-82ffa65a6428" />
